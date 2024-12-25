@@ -43,4 +43,4 @@ an example of what the file should look like:
     mh_uid: 000637314982734091827349334368923
     target_land_id: 3104985720349857586239603437539334368784371209487123323
 
-Once you have that file created, run this script. It will save any friend's town that it was able to download to the same directory as the script with the friend's username as its name and .landproto as its extension.
+Once you have that file created, run this script by executing: python friend_puller.py. It will save any friend's town that it was able to download to the same directory as the script with the friend's username as its name and .landproto as its extension.
