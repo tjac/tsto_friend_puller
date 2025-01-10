@@ -21,23 +21,61 @@ import logging
 import hashlib
 import hmac
 import os
+import subprocess
+import sys
 import uuid
 
-# pip install pycryptodome
-from Crypto.Cipher import AES
+try:
+  # pip install pycryptodome
+  from Crypto.Cipher import AES
+except ImportError:
+  print("Installing pycryptodome...")
+  subprocess.check_call(
+    [sys.executable, "-m", "pip", "install", "pycryptodome"]
+  )
+  from Crypto.Cipher import AES
 
-# pip install requests
-import requests
+try:
+  # pip install requests
+  import requests
+except ImportError:
+  print("Installing requests...")
+  subprocess.check_call(
+    [sys.executable, "-m", "pip", "install", "requests"]
+  )
+  import requests
 
-# The Simpsons: Tapped Out protobuffers
-import AuthData_pb2
-import GetFriendData_pb2
-import LandData_pb2
-import PurchaseData_pb2
-import WholeLandTokenData_pb2
+try:
+  # pip install protobufs
+  # The Simpsons: Tapped Out protobuffers
+  import AuthData_pb2
+  import GetFriendData_pb2
+  import LandData_pb2
+  import PurchaseData_pb2
+  import WholeLandTokenData_pb2
+except ImportError:
+  print("Installing protobuf...")
+  subprocess.check_call(
+    [sys.executable, "-m", "pip", "install", "protobuf"]
+  )
+  import AuthData_pb2
+  import GetFriendData_pb2
+  import LandData_pb2
+  import PurchaseData_pb2
+  import WholeLandTokenData_pb2
+
+try:
+  # pip install urllib3
+  import urllib3
+except ImportError:
+  print("Installing urllib3...")
+  subprocess.check_call(
+    [sys.executable, "-m", "pip", "install", "urllib3"]
+  )
+  import urllib3
+
 
 # Disable InsecureRequestWarning warnings.
-import urllib3
 urllib3.disable_warnings()
 
 URL_SIMPSONS = 'prod.simpsons-ea.com'
